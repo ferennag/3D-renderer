@@ -61,3 +61,26 @@ void renderer_draw_rect(Renderer *renderer, Rect bounds, Color color) {
         }
     }
 }
+
+/*
+ * 3D
+ */
+Vec2 project_ortho(Vec3 point, f32 fov, u32 buffer_w, u32 buffer_h) {
+    f32 x = point.x * fov + (buffer_w / 2.0f);
+    f32 y = point.y * fov + (buffer_h / 2.0f);
+    return VEC2(x, y);
+}
+
+Vec2 project_perspective(Vec3 point, f32 fov, u32 buffer_w, u32 buffer_h) {
+    Vec3 camera_pos = VEC3(0, 0, -3);
+
+    f32 x = (point.x * fov / (point.z + camera_pos.z)) + (buffer_w / 2.0f);
+    f32 y = (point.y * fov / (point.z + camera_pos.z)) + (buffer_h / 2.0f);
+    return VEC2(x, y);
+}
+
+void renderer_draw_vertex(Renderer *renderer, Vec3 vertex, Color color) {
+    Framebuffer *buffer = renderer_current_framebuffer(renderer);
+    Vec2 projected = project_perspective(vertex, 256.0f, buffer->width, buffer->height);
+    framebuffer_set_color(buffer, projected.x, projected.y, color);
+}

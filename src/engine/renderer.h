@@ -4,6 +4,7 @@
 #include "framebuffer.h"
 #include "core/color.h"
 #include "core/rect.h"
+#include "math/vector.h"
 
 typedef struct Renderer Renderer;
 
@@ -26,3 +27,9 @@ void renderer_draw_grid(Renderer *renderer, u32 size, Color color);
 void renderer_draw_pixel(Renderer *renderer, u32 x, u32 y, Color color);
 
 void renderer_draw_rect(Renderer *renderer, Rect rect, Color color);
+
+/*
+ * 3D rendering
+ */
+
+void renderer_draw_vertex(Renderer *renderer, Vec3 vertex, Color color);
