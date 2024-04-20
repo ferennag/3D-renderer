@@ -13,6 +13,14 @@ add_executable(3d_renderer src/main.c
         src/application.c
         src/application.h
         src/game.h
-        src/game.c)
+        src/game.c
+        src/defines.h
+        src/core/memory.c
+        src/core/memory.h
+        src/engine/framebuffer.c
+        src/engine/framebuffer.h
+        src/engine/renderer.c
+        src/engine/renderer.h)
 target_link_libraries(3d_renderer SDL2::SDL2)
+target_include_directories(3d_renderer PRIVATE src)
 target_compile_options(3d_renderer PUBLIC -Wall -g)

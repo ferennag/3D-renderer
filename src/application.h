@@ -1,10 +1,13 @@
 #pragma once
 
+#include "defines.h"
 #include <stdbool.h>
 #include "game.h"
 
-bool application_init();
+typedef struct ApplicationContext ApplicationContext;
 
-void application_shutdown();
+ApplicationContext *application_init();
 
-void application_run(Game *game);
+void application_shutdown(ApplicationContext *context);
+
+void application_run(ApplicationContext *context, Game *game);

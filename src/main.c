@@ -3,7 +3,8 @@
 #include "game.h"
 
 int main(void) {
-    if (!application_init()) {
+    ApplicationContext *application_context = application_init();
+    if (!application_context) {
         printf("Failed to initialize application!");
         return -1;
     }
@@ -11,8 +12,8 @@ int main(void) {
     Game game = {0};
     game_init(&game);
 
-    application_run(&game);
+    application_run(application_context, &game);
 
-    application_shutdown();
+    application_shutdown(application_context);
     return 0;
 }

@@ -1,19 +1,16 @@
 #include "game.h"
 
 void initialize() {
-
 }
 
 void update() {
-
 }
 
-void render() {
-
+void render(Renderer *renderer) {
+    renderer_clear_color_buffer(renderer, 0xFF0000);
 }
 
 void shutdown() {
-
 }
 
 void game_init(Game *out_game) {

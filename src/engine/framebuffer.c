@@ -1,0 +1,19 @@
+#include "framebuffer.h"
+#include "core/memory.h"
+
+Framebuffer *framebuffer_create(u32 width, u32 height) {
+    Framebuffer *framebuffer = memory_alloc(sizeof(Framebuffer));
+
+    framebuffer->color_buffer = memory_alloc((width * height) * sizeof(u32));
+    framebuffer->width = width;
+    framebuffer->height = height;
+    framebuffer->pitch = sizeof(u32) * width;
+
+    return framebuffer;
+}
+
+void framebuffer_destroy(Framebuffer *framebuffer) {
+    memory_free(framebuffer->color_buffer);
+    framebuffer->color_buffer = NULL;
+    memory_free(framebuffer);
+}

@@ -1,11 +1,13 @@
 #pragma once
+#include <SDL.h>
+#include "engine/renderer.h"
 
 typedef struct Game {
     void (*initialize)();
 
     void (*update)();
 
-    void (*render)();
+    void (*render)(Renderer *renderer);
 
     void (*shutdown)();
 } Game;
