@@ -26,7 +26,7 @@ void renderer_resize(Renderer *renderer, u32 width, u32 height) {
 
 void renderer_clear_color_buffer(Renderer *renderer, u32 color) {
     Framebuffer *buffer = renderer->framebuffer;
-    for (int row = 0; row < buffer->width; ++row) {
+    for (int row = 0; row < buffer->height; ++row) {
         for (int col = 0; col < buffer->width; ++col) {
             u64 pos = row * buffer->width + col;
             buffer->color_buffer[pos] = color;

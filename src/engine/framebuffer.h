@@ -11,3 +11,5 @@ typedef struct Framebuffer {
 Framebuffer *framebuffer_create(u32 width, u32 height);
 
 void framebuffer_destroy(Framebuffer *framebuffer);
+
+void framebuffer_set_color(Framebuffer *framebuffer, int x, int y, u32 color);

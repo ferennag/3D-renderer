@@ -23,24 +23,24 @@ void application_window_resized(ApplicationContext *context, int width, int heig
 
 ApplicationContext *application_init() {
     if (SDL_Init(SDL_INIT_EVERYTHING) < 0) {
-        printf("Error initializing SDL: %s", SDL_GetError());
+        printf("Error initializing SDL: %s\n", SDL_GetError());
         return NULL;
     }
 
     ApplicationContext *context = memory_alloc(sizeof(ApplicationContext));
 
-    context->window = SDL_CreateWindow("3D Renderer", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 1280, 760,
-                              SDL_WINDOW_SHOWN | SDL_WINDOW_RESIZABLE);
+    context->window = SDL_CreateWindow("3D renderer", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 1280, 760,
+                              SDL_WINDOW_SHOWN | SDL_WINDOW_RESIZABLE | SDL_WINDOW_MAXIMIZED);
 
     if (!context->window) {
-        printf("Error initializing SDL window: %s", SDL_GetError());
+        printf("Error initializing SDL window: %s\n", SDL_GetError());
         return false;
     }
 
     context->sdl_renderer = SDL_CreateRenderer(context->window, -1, 0);
 
     if (!context->sdl_renderer) {
-        printf("Error initializing SDL renderer: %s", SDL_GetError());
+        printf("Error initializing SDL renderer: %s\n", SDL_GetError());
         return false;
     }
 

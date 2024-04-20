@@ -5,7 +5,7 @@
 int main(void) {
     ApplicationContext *application_context = application_init();
     if (!application_context) {
-        printf("Failed to initialize application!");
+        printf("Failed to initialize application!\n");
         return -1;
     }
 
