@@ -1,7 +1,7 @@
 #pragma once
 
 #include "defines.h"
-#include "color.h"
+#include "core/color.h"
 
 typedef struct Framebuffer {
     u32 *color_buffer;

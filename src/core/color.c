@@ -1,6 +1,6 @@
 #include "color.h"
 #include <math.h>
-#include "core/math.h"
+#include "math/math.h"
 
 inline u32 to_hex(f32 value) {
     u32 f = (u32) roundf(value * 255);

@@ -1,6 +1,6 @@
 #include "game.h"
-#include "engine/color.h"
-#include "engine/rect.h"
+#include "core/color.h"
+#include "core/rect.h"
 
 void initialize() {
 }

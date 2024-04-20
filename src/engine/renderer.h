@@ -2,8 +2,8 @@
 
 #include "defines.h"
 #include "framebuffer.h"
-#include "color.h"
-#include "rect.h"
+#include "core/color.h"
+#include "core/rect.h"
 
 typedef struct Renderer Renderer;
 
