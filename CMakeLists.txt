@@ -20,7 +20,11 @@ add_executable(3d_renderer src/main.c
         src/engine/framebuffer.c
         src/engine/framebuffer.h
         src/engine/renderer.c
-        src/engine/renderer.h)
+        src/engine/renderer.h
+        src/engine/color.h
+        src/engine/color.c
+        src/core/math.h
+        src/core/math.c)
 target_link_libraries(3d_renderer SDL2::SDL2)
 target_include_directories(3d_renderer PRIVATE src)
 target_compile_options(3d_renderer PUBLIC -Wall -g)

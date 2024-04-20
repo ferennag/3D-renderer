@@ -12,7 +12,7 @@ typedef struct ApplicationContext {
 } ApplicationContext;
 
 SDL_Texture *create_sreen_texture(ApplicationContext *context, int width, int height) {
-    return SDL_CreateTexture(context->sdl_renderer, SDL_PIXELFORMAT_ARGB8888, SDL_TEXTUREACCESS_STREAMING, width, height);
+    return SDL_CreateTexture(context->sdl_renderer, SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_STREAMING, width, height);
 }
 
 void application_window_resized(ApplicationContext *context, int width, int height) {

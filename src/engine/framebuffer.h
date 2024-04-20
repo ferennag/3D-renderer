@@ -1,6 +1,7 @@
 #pragma once
 
 #include "defines.h"
+#include "color.h"
 
 typedef struct Framebuffer {
     u32 *color_buffer;
@@ -12,4 +13,4 @@ Framebuffer *framebuffer_create(u32 width, u32 height);
 
 void framebuffer_destroy(Framebuffer *framebuffer);
 
-void framebuffer_set_color(Framebuffer *framebuffer, int x, int y, u32 color);
+void framebuffer_set_color(Framebuffer *framebuffer, int x, int y, Color color);

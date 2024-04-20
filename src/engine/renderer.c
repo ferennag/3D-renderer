@@ -24,7 +24,7 @@ void renderer_resize(Renderer *renderer, u32 width, u32 height) {
     renderer->framebuffer = framebuffer_create(width, height);
 }
 
-void renderer_clear_color_buffer(Renderer *renderer, u32 color) {
+void renderer_clear_color_buffer(Renderer *renderer, Color color) {
     Framebuffer *buffer = renderer->framebuffer;
     for (int row = 0; row < buffer->height; ++row) {
         for (int col = 0; col < buffer->width; ++col) {
@@ -36,4 +36,23 @@ void renderer_clear_color_buffer(Renderer *renderer, u32 color) {
 
 Framebuffer *renderer_current_framebuffer(Renderer *renderer) {
     return renderer->framebuffer;
+}
+
+void renderer_draw_grid(Renderer *renderer, u32 size, Color color) {
+    Framebuffer *buffer = renderer_current_framebuffer(renderer);
+    for (int row = 0; row < buffer->height; ++row) {
+        for (int col = 0; col < buffer->width; ++col) {
+            if (col % size == 0 || row % size == 0) {
+                framebuffer_set_color(buffer, col, row, color);
+            }
+        }
+    }
+}
+
+void renderer_draw_rect(Renderer *renderer, u32 x, u32 y, u32 w, u32 h, Color color) {
+    for(u32 row = y; row < h; ++row) {
+        for(u32 col = x; col < w; ++col) {
+            framebuffer_set_color(renderer->framebuffer, col, row, color);
+        }
+    }
 }
