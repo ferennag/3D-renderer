@@ -3,6 +3,7 @@
 #include "defines.h"
 #include "framebuffer.h"
 #include "color.h"
+#include "rect.h"
 
 typedef struct Renderer Renderer;
 
@@ -18,4 +19,4 @@ Framebuffer *renderer_current_framebuffer(Renderer *renderer);
 
 void renderer_draw_grid(Renderer *renderer, u32 size, Color color);
 
-void renderer_draw_rect(Renderer *renderer, u32 x, u32 y, u32 w, u32 h, Color color);
+void renderer_draw_rect(Renderer *renderer, Rect rect, Color color);

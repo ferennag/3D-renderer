@@ -24,7 +24,8 @@ add_executable(3d_renderer src/main.c
         src/engine/color.h
         src/engine/color.c
         src/core/math.h
-        src/core/math.c)
+        src/core/math.c
+        src/engine/rect.h)
 target_link_libraries(3d_renderer SDL2::SDL2)
 target_include_directories(3d_renderer PRIVATE src)
 target_compile_options(3d_renderer PUBLIC -Wall -g)

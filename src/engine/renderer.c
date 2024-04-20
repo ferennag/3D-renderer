@@ -49,9 +49,9 @@ void renderer_draw_grid(Renderer *renderer, u32 size, Color color) {
     }
 }
 
-void renderer_draw_rect(Renderer *renderer, u32 x, u32 y, u32 w, u32 h, Color color) {
-    for(u32 row = y; row < h; ++row) {
-        for(u32 col = x; col < w; ++col) {
+void renderer_draw_rect(Renderer *renderer, Rect bounds, Color color) {
+    for(u32 row = bounds.y; row < bounds.h; ++row) {
+        for(u32 col = bounds.x; col < bounds.w; ++col) {
             framebuffer_set_color(renderer->framebuffer, col, row, color);
         }
     }
