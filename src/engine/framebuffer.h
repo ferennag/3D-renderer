@@ -13,4 +13,4 @@ Framebuffer *framebuffer_create(u32 width, u32 height);
 
 void framebuffer_destroy(Framebuffer *framebuffer);
 
-void framebuffer_set_color(Framebuffer *framebuffer, int x, int y, Color color);
+void framebuffer_set_color(Framebuffer *framebuffer, u32 x, u32 y, Color color);

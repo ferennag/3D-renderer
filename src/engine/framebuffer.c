@@ -19,7 +19,7 @@ void framebuffer_destroy(Framebuffer *framebuffer) {
     memory_free(framebuffer);
 }
 
-inline void framebuffer_set_color(Framebuffer *framebuffer, int x, int y, Color color) {
+inline void framebuffer_set_color(Framebuffer *framebuffer, u32 x, u32 y, Color color) {
     if (x < 0 || y < 0 || x > framebuffer->width || y > framebuffer->height) {
         printf("Warning: trying to index framebuffer of size (%d, %d) with (%d, %d)\n", framebuffer->width,
                framebuffer->height, x, y);
