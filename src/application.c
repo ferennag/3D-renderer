@@ -12,7 +12,7 @@ bool application_init() {
     }
 
     window = SDL_CreateWindow("3D Renderer", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 1280, 760,
-                                          SDL_WINDOW_SHOWN | SDL_WINDOW_RESIZABLE);
+                              SDL_WINDOW_SHOWN | SDL_WINDOW_RESIZABLE);
 
     if (!window) {
         printf("Error initializing SDL window: %s", SDL_GetError());
@@ -62,7 +62,9 @@ bool handle_event(SDL_Event *event) {
     return true;
 }
 
-void application_run() {
+void application_run(Game *game) {
+    game->initialize();
+
     bool running = true;
     while (running) {
         SDL_Event event;
@@ -70,7 +72,12 @@ void application_run() {
             running &= handle_event(&event);
         }
 
+        game->update();
+
         SDL_RenderClear(renderer);
+        game->render();
         SDL_RenderPresent(renderer);
     }
+
+    game->shutdown();
 }
