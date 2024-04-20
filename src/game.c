@@ -12,6 +12,7 @@ void render(Renderer *renderer) {
     renderer_clear_color_buffer(renderer, RGB(0.08f, 0.08f, 0.08f));
     renderer_draw_grid(renderer, 20, RGB(0.15f, 0.15f, 0.15f));
     renderer_draw_rect(renderer, RECT(100, 100, 220, 340), RGB(0.1f, 0.2f, 0.75f));
+    renderer_draw_pixel(renderer, 500, 500, RGB(1.0f, 1.0f, 1.0f));
 }
 
 void shutdown() {

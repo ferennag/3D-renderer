@@ -13,9 +13,13 @@ void renderer_destroy(Renderer *renderer);
 
 void renderer_resize(Renderer *renderer, u32 width, u32 height);
 
-void renderer_clear_color_buffer(Renderer *renderer, Color color);
-
 Framebuffer *renderer_current_framebuffer(Renderer *renderer);
+
+/*
+ * Rendering functions
+ */
+
+void renderer_clear_color_buffer(Renderer *renderer, Color color);
 
 void renderer_draw_grid(Renderer *renderer, u32 size, Color color);
 
