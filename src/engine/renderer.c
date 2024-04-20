@@ -38,6 +38,11 @@ Framebuffer *renderer_current_framebuffer(Renderer *renderer) {
     return renderer->framebuffer;
 }
 
+void renderer_draw_pixel(Renderer *renderer, u32 x, u32 y, Color color) {
+    Framebuffer *buffer = renderer_current_framebuffer(renderer);
+    framebuffer_set_color(buffer, x, y, color);
+}
+
 void renderer_draw_grid(Renderer *renderer, u32 size, Color color) {
     Framebuffer *buffer = renderer_current_framebuffer(renderer);
     for (u32 row = 0; row < buffer->height; ++row) {
@@ -50,8 +55,8 @@ void renderer_draw_grid(Renderer *renderer, u32 size, Color color) {
 }
 
 void renderer_draw_rect(Renderer *renderer, Rect bounds, Color color) {
-    for(u32 row = bounds.y; row < bounds.h; ++row) {
-        for(u32 col = bounds.x; col < bounds.w; ++col) {
+    for (u32 row = bounds.y; row < bounds.h; ++row) {
+        for (u32 col = bounds.x; col < bounds.w; ++col) {
             framebuffer_set_color(renderer->framebuffer, col, row, color);
         }
     }

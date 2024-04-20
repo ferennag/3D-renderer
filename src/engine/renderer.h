@@ -19,4 +19,6 @@ Framebuffer *renderer_current_framebuffer(Renderer *renderer);
 
 void renderer_draw_grid(Renderer *renderer, u32 size, Color color);
 
+void renderer_draw_pixel(Renderer *renderer, u32 x, u32 y, Color color);
+
 void renderer_draw_rect(Renderer *renderer, Rect rect, Color color);
