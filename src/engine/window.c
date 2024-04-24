@@ -1,5 +1,6 @@
 #include "window.h"
 #include "core/memory.h"
+#include "core/event.h"
 
 SDL_Texture *window_create_sreen_texture(Window *window, int width, int height);
 
@@ -10,8 +11,11 @@ bool handle_keyboard_event(SDL_KeyboardEvent *event) {
         case SDLK_ESCAPE:
         case SDLK_q:
             return false;
-        default:
+        default: {
+            EventData event_data = {.data_u64 = {event->keysym.sym}};
+            event_dispatch(EVENT_KEYPRESS, event_data);
             return true;
+        }
     }
 }
 
@@ -25,6 +29,10 @@ bool handle_event(Window *window, SDL_Event *event) {
             if (event->window.event == SDL_WINDOWEVENT_RESIZED) {
                 SDL_DestroyTexture(window->screen_texture);
                 window->screen_texture = window_create_sreen_texture(window, event->window.data1, event->window.data2);
+                EventData data = {
+                        .data_u64 = {event->window.data1, event->window.data2}
+                };
+                event_dispatch(EVENT_WINDOW_RESIZED, data);
             }
             break;
         default:

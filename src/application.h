@@ -4,10 +4,9 @@
 #include <stdbool.h>
 #include "game.h"
 
-typedef struct ApplicationContext ApplicationContext;
 
-ApplicationContext *application_init();
+bool application_init();
 
-void application_shutdown(ApplicationContext *context);
+void application_shutdown();
 
-void application_run(ApplicationContext *context, Game *game);
+void application_run(Game *game);

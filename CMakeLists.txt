@@ -15,6 +15,8 @@ add_executable(3d_renderer src/main.c
         src/game.h
         src/game.c
         src/defines.h
+        src/core/darray.c
+        src/core/darray.h
         src/core/memory.c
         src/core/memory.h
         src/engine/framebuffer.c
@@ -33,6 +35,8 @@ add_executable(3d_renderer src/main.c
         src/engine/window.c
         src/engine/window.c
         src/engine/window.h
+        src/core/event.c
+        src/core/event.h
 )
 target_link_libraries(3d_renderer SDL2::SDL2)
 target_include_directories(3d_renderer PRIVATE src)
