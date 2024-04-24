@@ -28,6 +28,11 @@ add_executable(3d_renderer src/main.c
         src/core/rect.h
         src/math/vector.c
         src/math/vector.h
+        src/engine/window.c
+        src/engine/window.h
+        src/engine/window.c
+        src/engine/window.c
+        src/engine/window.h
 )
 target_link_libraries(3d_renderer SDL2::SDL2)
 target_include_directories(3d_renderer PRIVATE src)
